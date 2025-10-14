@@ -1,0 +1,131 @@
+# Dev Magic - Git Ignore File
+# Excludes build artifacts, temporary files, and sensitive data
+
+# Build artifacts
+*.deb
+build/devmagic_*
+devmagic_*.deb
+*.tar.gz
+*.zip
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+logs/
+*.out
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Local configuration files (may contain sensitive data)
+*.local.conf
+.env
+.env.local
+config.local
+
+# Certificate files (contain private keys)
+*.key
+*.pem
+*.crt
+*.p12
+certs/
+ssl/
+
+# Database files
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+backup/
+backups/
+*.backup
+
+# WordPress specific
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backup*/
+wp-content/upgrade/
+wp-content/w3tc-config/
+
+# Apache configuration backups
+*.conf.bak
+sites-available/*.bak
+sites-enabled/*.bak
+
+# Development and testing
+test/
+tests/
+*.test
+coverage/
+node_modules/
+vendor/
+
+# Package manager files
+composer.lock
+package-lock.json
+yarn.lock
+
+# Documentation build files
+docs/_build/
+docs/site/
+*.pdf
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Local development files
+local/
+dev/
+development/
+
+# Project specific ignores
+myscript.local.conf
+devmagic.local.conf
