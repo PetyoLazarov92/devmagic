@@ -6,6 +6,7 @@
 * **Repo:** releases: every `vX.Y.Z` tag builds `devmagic-X.Y.Z.tar.gz` and its checksum and publishes them with `get.sh` as a GitHub release, its notes from this file
 * **Repo:** the version lives in `VERSION`, read by the Makefile and the `.deb` build
 * **Repo:** agent rules and skills: `AGENTS.md`, `.cursor/rules/`, `.cursor/skills/`
+* **Fix:** the check whether a command is installed calls `command -v` itself, not through an empty command substitution that only worked by accident
 
 ### v1.0.0 (2025-10-14)
 * **CLI:** certificates from a local CA (`-ci`, `-c`), an Apache SSL vhost and hosts line (`-cf`), and WordPress with its database (`-w`, `-dbn`, `-t`)

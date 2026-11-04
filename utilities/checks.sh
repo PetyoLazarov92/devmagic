@@ -54,5 +54,5 @@ is_command_exists() {
 
   [[ $# == 0 ]] && printf "Missing required argument to %s\\n" "${FUNCNAME[0]}"
 
-  $(command -v "$1" >/dev/null 2>&1) && return 0 || return 1
+  command -v "$1" >/dev/null 2>&1
 }
