@@ -1,0 +1,26 @@
+---
+description: Bash style for devmagic's scripts, install.sh and get.sh
+globs: ["*.sh", "includes/**", "tools/**", "utilities/**", "build/**"]
+---
+
+# Shell scripts
+
+- `#!/usr/bin/env bash` and `set -euo pipefail` (or `set -Eeuo pipefail` with
+  a trap) in entry points. Files in `includes/`, `tools/` and `utilities/` only
+  define functions; `mklocalenv.sh` sources them from `script_dir`.
+- Log with the `devmagic_log_*` functions from `utilities/colors-logging.sh`
+  in the command itself; `install.sh` and `get.sh` keep their own small
+  loggers, since they run before anything is installed.
+- Quote every expansion. Use arrays for argument lists. No `eval`. Never build
+  a command from user input as a string.
+- `sudo` only for the step that needs it, never for the whole script.
+  `install.sh` refuses to run as root.
+- Replace files atomically: write a temp file in the same folder, then `mv`.
+- Downloads are checked before use: `get.sh` verifies the `.sha256` with
+  `sha256sum -c` before it unpacks anything, and works in a `mktemp -d`
+  folder it removes on exit.
+- Interactive questions read from the terminal, so `curl ... | bash` still
+  works: `get.sh` runs `install.sh` with `< /dev/tty` when there is one.
+- Under `set -e`, a final `cond && cmd` returns 1 when `cond` is false; use
+  `if` for anything that is not the last word.
+- `shellcheck -x` passes with no warnings for new and changed scripts.
