@@ -6,7 +6,7 @@
 set -e
 
 PACKAGE_NAME="devmagic"
-VERSION="1.0.0"
+VERSION="$(cat "$(dirname "$0")/../VERSION")"
 DEB_DIR="${PACKAGE_NAME}_${VERSION}"
 ARCH="all"
 

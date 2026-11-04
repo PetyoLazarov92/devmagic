@@ -1,0 +1,28 @@
+name: Check
+
+# The same checks the release runs, on every push and pull request.
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: make test
+      - name: shellcheck
+        run: |
+          # The scripts from before releases are held at error level until they are cleaned up.
+          shellcheck -S error mklocalenv.sh install.sh uninstall.sh includes/*.sh tools/*.sh utilities/*.sh build/*.sh
+          shellcheck -x get.sh
+      - name: get.sh against a local release
+        run: |
+          v="$(cat VERSION)"
+          git archive --format=tar.gz --prefix="devmagic-${v}/" -o "/tmp/devmagic-${v}.tar.gz" HEAD
+          (cd /tmp && sha256sum "devmagic-${v}.tar.gz" > "devmagic-${v}.tar.gz.sha256")
+          DEVMAGIC_DOWNLOAD_BASE="file:///tmp" bash get.sh --version "v${v}" --dry-run

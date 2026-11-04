@@ -4,7 +4,7 @@
 
 # Package information
 PACKAGE_NAME = devmagic
-VERSION = 1.0.0
+VERSION := $(shell cat VERSION)
 DEB_PACKAGE = $(PACKAGE_NAME)_$(VERSION).deb
 
 # Default target

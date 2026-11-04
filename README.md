@@ -1,6 +1,6 @@
 # Dev Magic - WordPress Local Development Environment Tool
 
-[![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)](#v100-initial-release)
+[![Version](https://img.shields.io/badge/version-1.1.0-brightgreen)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#-license)
 [![bash](https://img.shields.io/badge/bash-4.0%2B-purple)](#required-dependencies)
 
@@ -42,7 +42,24 @@
 
 ## 💻 Installation
 
-### Method 1: System-wide Installation (Recommended)
+### Method 1: One line (recommended)
+
+```bash
+curl -fsSL https://webtimeless.cloud/devmagic-cli.sh | bash
+```
+
+It downloads the newest [release](https://github.com/PetyoLazarov92/devmagic/releases),
+checks it against its `.sha256`, and runs its `install.sh`, which asks for
+sudo when it needs it. Run it as your own user, not root. To read the script
+first, or pick a release:
+
+```bash
+curl -fsSLO https://github.com/PetyoLazarov92/devmagic/releases/latest/download/get.sh
+bash get.sh --dry-run          # download and check, install nothing
+bash get.sh --version v1.1.0   # a given release
+```
+
+### Method 2: From a checkout
 
 ```bash
 # Clone the repository
@@ -58,20 +75,20 @@ make install
 bash install.sh
 ```
 
-### Method 2: Debian Package
+### Method 3: Debian Package
 
 ```bash
 # Create DEB package
 make deb
 
 # Install the package
-sudo dpkg -i devmagic_1.0.0.deb
+sudo dpkg -i devmagic_1.1.0.deb
 
 # Install dependencies if needed
 sudo apt-get install -f
 ```
 
-### Method 3: Direct Usage (Development)
+### Method 4: Direct Usage (Development)
 
 ```bash
 # Make executable and run directly
@@ -498,16 +515,8 @@ Dev Magic is a labor of love created to help WordPress developers setup local en
 
 ## 📝 Changelog
 
-### v1.0.0 (Initial Release)
-- ✅ SSL certificate generation with custom Certificate Authority
-- ✅ Apache virtual host configuration automation
-- ✅ Complete WordPress installation and setup
-- ✅ Database import functionality for existing WordPress sites
-- ✅ Git project cloning for themes, plugins, and custom code
-- ✅ Interactive wizard mode for guided setup
-- ✅ Comprehensive WordPress site cleanup functionality
-- ✅ Debian package distribution method
-- ✅ Comprehensive documentation
+Every release and what it changed is in [CHANGELOG.md](CHANGELOG.md), and on
+[webtimeless.cloud](https://webtimeless.cloud/changelog/devmagic-cli/).
 
 ---
 

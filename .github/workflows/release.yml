@@ -1,0 +1,54 @@
+name: Release
+
+# A pushed vX.Y.Z tag that matches VERSION builds devmagic-X.Y.Z.tar.gz and its checksum, and
+# publishes them with get.sh as a GitHub release, its notes from the tag's CHANGELOG.md section.
+on:
+  push:
+    tags: ['v*.*.*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: The tag matches VERSION
+        run: |
+          v="$(cat VERSION)"
+          if [ "${GITHUB_REF_NAME}" != "v${v}" ]; then
+            echo "::error::tag ${GITHUB_REF_NAME} does not match VERSION ${v}"
+            exit 1
+          fi
+
+      - name: Check the scripts
+        run: |
+          make test
+          # The scripts from before releases are held at error level until they are cleaned up.
+          shellcheck -S error mklocalenv.sh install.sh uninstall.sh includes/*.sh tools/*.sh utilities/*.sh build/*.sh
+          shellcheck -x get.sh
+
+      - name: Release notes from CHANGELOG.md
+        run: |
+          awk -v h="### ${GITHUB_REF_NAME} " 'index($0, h) == 1 { f = 1; next } /^### v/ { f = 0 } f' CHANGELOG.md > notes.md
+          if [ ! -s notes.md ]; then
+            echo "::error::CHANGELOG.md has no section for ${GITHUB_REF_NAME}"
+            exit 1
+          fi
+
+      - name: Build the package
+        run: |
+          v="$(cat VERSION)"
+          git archive --format=tar.gz --prefix="devmagic-${v}/" -o "devmagic-${v}.tar.gz" "${GITHUB_REF_NAME}"
+          sha256sum "devmagic-${v}.tar.gz" > "devmagic-${v}.tar.gz.sha256"
+          cat "devmagic-${v}.tar.gz.sha256"
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          v="$(cat VERSION)"
+          gh release create "${GITHUB_REF_NAME}" --verify-tag --title "${GITHUB_REF_NAME}" --notes-file notes.md \
+            "devmagic-${v}.tar.gz" "devmagic-${v}.tar.gz.sha256" get.sh

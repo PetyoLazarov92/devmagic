@@ -1,0 +1,8 @@
+# Left out of the release package, which install.sh copies whole into /usr/local/share/devmagic.
+.github export-ignore
+.cursor export-ignore
+.claude export-ignore
+.gitattributes export-ignore
+AGENTS.md export-ignore
+CLAUDE.md export-ignore
+get.sh export-ignore
