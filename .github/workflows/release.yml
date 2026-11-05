@@ -52,3 +52,9 @@ jobs:
           v="$(cat VERSION)"
           gh release create "${GITHUB_REF_NAME}" --verify-tag --title "${GITHUB_REF_NAME}" --notes-file notes.md \
             "devmagic-${v}.tar.gz" "devmagic-${v}.tar.gz.sha256" get.sh
+
+  # Once the release is out, the site rebuilds with it.
+  site:
+    needs: release
+    uses: ./.github/workflows/site.yml
+    secrets: inherit
