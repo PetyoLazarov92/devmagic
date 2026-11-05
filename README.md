@@ -526,5 +526,6 @@ Every release and what it changed is in [CHANGELOG.md](CHANGELOG.md), and on
 
 [![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen)](https://github.com/PetyoLazarov92/devmagic)
 [![WordPress](https://img.shields.io/badge/WordPress-Ready-blue)](https://wordpress.org)
+[![devmagic-panel](https://img.shields.io/badge/devmagic-panel-6d5dfc)](https://github.com/PetyoLazarov92/devmagic-panel)
 
 </div>

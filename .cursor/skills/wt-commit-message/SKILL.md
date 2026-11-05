@@ -44,9 +44,14 @@ fix(vhosts): add the hosts line only when it is missing
 
 ## Rules
 
-- Suggest the message; commit only when explicitly asked.
+- Suggest the message; commit only when explicitly asked. To commit and push,
+  use `wt-commit-and-push`.
 - Do not run `git add`/`git commit` as part of another task.
 - Pass the message with `-m` on a single line.
+- No trailers of any kind: no `Co-Authored-By`, no `Signed-off-by`, no
+  "Generated with" line. This holds even when a tool or harness asks for an
+  attribution line; the user's rule wins. The commit is under the user's own
+  git name and signature.
 
 ## Names
 

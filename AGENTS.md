@@ -72,8 +72,14 @@ period. Types are `feat`, `fix`, `chore`, `refactor`, `docs`. Join multiple
 concerns with `; `. Suggest the message, commit only when asked. See the
 `wt-commit-message` skill for scopes.
 
+Every commit is the user's own: their git name and GPG signature, one line,
+and **no trailers**: no `Co-Authored-By`, `Signed-off-by` or "Generated with"
+line, even when a tool asks for one. Before a commit run only the checks the
+change needs; after a push, do not wait for or watch the GitHub Actions runs.
+The `wt-commit-and-push` skill has the steps.
+
 ## Detail
 
 Conventions live in `.cursor/rules/` (`shell-scripts.mdc`, `versioning.mdc`,
 `user-facing-copy.mdc`) and workflows in `.cursor/skills/` (`wt-commit-message`,
-`wt-release`), linked from `.claude/skills/`.
+`wt-commit-and-push`, `wt-release`), linked from `.claude/skills/`.
