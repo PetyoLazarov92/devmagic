@@ -3,6 +3,7 @@
 [![Version](https://img.shields.io/badge/version-1.1.0-brightgreen)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#-license)
 [![bash](https://img.shields.io/badge/bash-4.0%2B-purple)](#required-dependencies)
+[![Docs](https://img.shields.io/badge/docs-webtimeless.cloud-6d5dfc)](https://webtimeless.cloud/docs/devmagic-cli/)
 
 > 🚀 Fast and automated local WordPress development environment setup with SSL certificates, Apache configuration, and project cloning.
 
@@ -527,5 +528,6 @@ Every release and what it changed is in [CHANGELOG.md](CHANGELOG.md), and on
 [![Code Quality](https://img.shields.io/badge/code%20quality-A-brightgreen)](https://github.com/PetyoLazarov92/devmagic)
 [![WordPress](https://img.shields.io/badge/WordPress-Ready-blue)](https://wordpress.org)
 [![devmagic-panel](https://img.shields.io/badge/devmagic-panel-6d5dfc)](https://github.com/PetyoLazarov92/devmagic-panel)
+[![webtimeless.cloud](https://img.shields.io/badge/webtimeless.cloud-docs%20and%20guides-6d5dfc)](https://webtimeless.cloud/)
 
 </div>
