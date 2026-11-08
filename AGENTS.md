@@ -56,9 +56,12 @@ bash get.sh --dry-run # show what the one-line installer would download and run
    environment or stdin, and are never printed. The existing `-dbp` flag is
    kept for compatibility.
 6. **Made-up names only.** Examples, tests, comments, docs, the changelog and
-   commit messages use made-up names (`local.acme.test`, `shop.localhost`,
-   `git@github.com:acme/site.git`), never a real client, project, company or
-   person, including the sites on this machine.
+   commit messages use made-up names (`local.spellbook.test`, `shop.localhost`,
+   `git@github.com:wandworks/site.git`), never a real client, project, company
+   or person, including the sites on this machine. The set is shared with
+   devmagic-panel and webtimeless.cloud: Spellbook for the main example site,
+   Wandworks for the agency and its org, theme and plugins, Alex Morgan and Sam
+   Lee for people, and production addresses on the reserved `.example`.
 7. **No em dashes anywhere**: output, docs, comments, commit messages. Use a
    comma, a colon, or two sentences.
 8. **Respect the user's machine.** `install.sh` never runs as root and asks

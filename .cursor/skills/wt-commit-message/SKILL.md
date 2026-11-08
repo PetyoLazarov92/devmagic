@@ -56,5 +56,6 @@ fix(vhosts): add the hosts line only when it is missing
 ## Names
 
 Examples in code, comments, docs, the changelog and commit messages use
-made-up names only: `local.acme.test`, `shop.localhost`,
-`git@github.com:acme/site.git`, a person like Alex Morgan.
+made-up names only: `local.spellbook.test`, `shop.localhost`,
+`git@github.com:wandworks/site.git`, a person like Alex Morgan (the full set
+is in AGENTS.md, rule 6).

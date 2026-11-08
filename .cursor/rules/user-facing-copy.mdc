@@ -6,6 +6,6 @@ alwaysApply: true
 # User-facing copy
 
 - Short, plain, specific: say what is wrong and what to do ("not in hosts:
-  local.acme.test", "run devmagic -ci first"), not that "an error occurred".
+  local.spellbook.test", "run devmagic -ci first"), not that "an error occurred".
 - Name real things: paths, commands, domains, in `code` style in docs.
 - No em dashes. No exclamation marks. New output adds no emoji.
